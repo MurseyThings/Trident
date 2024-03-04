@@ -74,19 +74,18 @@ primary_branch = main
 managed_services = mobileraker
 virtualenv = ~/mobileraker-env
 requirements = scripts/mobileraker-requirements.txt
-install_script = scripts/install-mobileraker-companion.sh
+install_script = scripts/install.sh
 
-[update_manager z_calibration]
-type = git_repo
-path = /home/pi/klipper_z_calibration
-origin = https://github.com/protoloft/klipper_z_calibration.git
-managed_services = klipper
-
-[update_manager Klipper-Adaptive-Meshing-Purging]
+[update_manager beacon]
 type = git_repo
 channel = dev
-path = ~/Klipper-Adaptive-Meshing-Purging
-origin = https://github.com/kyleisah/Klipper-Adaptive-Meshing-Purging.git
+path = ~/beacon_klipper
+origin = https://github.com/beacon3d/beacon_klipper.git
+env = ~/klippy-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+is_system_service = False
 managed_services = klipper
-primary_branch = main
+info_tags = 
+	desc=Beacon Surface Scanner
 
